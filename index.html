@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fullscreen p5.js App</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="menu">
+        <button id="menu-toggle">☰</button>
+        <div id="menu-content">
+            <div id="title">Insect Simulation</div>
+            <!-- <div id="title">press enter for motion field</div> -->
+            <label for="motionField">
+                <input type="checkbox" id="motionField" /> motion field (press enter)
+            </label>
+            <label for="count">creature count</label>
+            <input type="range" id="count" min="300" max="2000" value="800" />
+
+            <label for="updateRate">update rate</label>
+            <input type="range" id="updateRate" min="0" max="10" value="4" />
+
+            <label for="memory">memory size</label>
+            <input type="range" id="memory" min="1" max="40" value="10" />
+            
+            <label for="blur1">small gaussian blur</label>
+            <input type="range" id="blur1" min="1" max="50" value="2" />
+            
+            <label for="blur2">big gaussian blur</label>
+            <input type="range" id="blur2" min="1" max="50" value="5" />
+
+            <label for="fieldscale">resolution</label>
+            <input type="range" id="fieldscale" min="1" max="100" value="10" />
+        </div>
+    </div>
+    
+    <script>
+        // JavaScript for toggling the menu
+        document.getElementById('menu-toggle').onclick = function() {
+            const menuContent = document.getElementById('menu-content');
+            menuContent.style.display = menuContent.style.display === 'block' ? 'none' : 'block';
+        };
+    </script>
+    
+    <!-- The p5.js sketch will attach to the body element -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="insect.js"></script>
+    <script src="sketch.js"></script>
+</body>
+</html>
